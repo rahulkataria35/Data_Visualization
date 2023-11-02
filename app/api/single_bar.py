@@ -7,7 +7,7 @@ import base64
 import shutil
 import datetime
 from common.common import get_random_dir_file_name
-from visuals.bar_bench import bar_graph_with_benchmarks
+from utils.bar_bench import bar_graph_with_benchmarks
 
 
 single_bar_graph = Blueprint('single_bar_graph', __name__, url_prefix='/visualization_api')
@@ -61,7 +61,7 @@ def performance_report():
 
         # save file into folder
         name = get_random_dir_file_name(prefix="", suffix="doc")
-        path = "./output/kotak_visuals/" + str(name)
+        path = "./output/" + str(name)
 
         isExist = os.path.exists(path)
         if not isExist:

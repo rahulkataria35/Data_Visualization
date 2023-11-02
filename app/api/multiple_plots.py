@@ -5,7 +5,7 @@ import os
 import base64
 import datetime
 from common.common import get_random_dir_file_name
-from visuals.multi_bargraphs import create_multi_graph
+from utils.multi_bargraphs import create_multi_graph
 
 
 multiple_bar = Blueprint('multiple_bar', __name__, url_prefix='/visualization_api')
@@ -45,7 +45,7 @@ def kotak_performance_report():
 
     # save file into folder
     name = get_random_dir_file_name(prefix="", suffix="doc")
-    path = "./output/kotak_visuals/" + str(name)
+    path = "./output/" + str(name)
 
     isExist = os.path.exists(path)
     if not isExist:
@@ -65,7 +65,7 @@ def kotak_performance_report():
         return jsonify({"RESPONSE_TYPE": "E", "RESPONSE_MESSAGE": "Some Error Occured", "Error": meta})
     
     try:
-        shutil.rmtree('./output/kotak_visuals/')
+        shutil.rmtree(path)
     except:
         pass
 
