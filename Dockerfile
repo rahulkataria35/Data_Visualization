@@ -1,6 +1,6 @@
 FROM tiangolo/uwsgi-nginx-flask:python3.8
 
-LABEL maintainer="Rahul Kataria <rahul.kataria@saarathi.ai>"
+LABEL maintainer="Rahul Kataria <rahulkataria3355@gmail.com>"
 
 ADD ./requirements.txt /requirements.txt
 RUN pip install --upgrade pip && \
