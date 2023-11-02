@@ -1,0 +1,29 @@
+---
+version: "3.3"
+
+services:
+  data_visualization_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: visuals:latest
+    environment:
+      - code_update_time=${NOW}
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "curl",
+          "-f",
+          "http://localhost/visualization_api/status"
+        ]
+      interval: "300s"
+      timeout: "150s"
+      retries: 3
+    container_name: "visualization_api"
+
+    ports:
+      - "9044:80"
+    volumes:
+      - ./app/output/:/app/output
+    working_dir: /app
