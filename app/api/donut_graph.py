@@ -4,7 +4,7 @@ import shutil
 import os
 import base64
 from common.common import get_random_dir_file_name
-from utils.donut import donut_graph
+from utils.plots import donut_graph
 
 
 donut_chart = Blueprint('donut_chart', __name__, url_prefix='/visualization_api')
