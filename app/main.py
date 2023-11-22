@@ -10,11 +10,13 @@ app = Flask(__name__)
 from api.single_bar import single_bar_graph
 from api.multiple_plots import multiple_bar
 from api.donut_graph import donut_chart
+from api.line_and_bar import line_and_bar_graph
 
 # register blueprints
 app.register_blueprint(multiple_bar)
 app.register_blueprint(single_bar_graph)
 app.register_blueprint(donut_chart)
+app.register_blueprint(line_and_bar_graph)
 
 
 code_update_time = os.getenv("code_update_time", "")
