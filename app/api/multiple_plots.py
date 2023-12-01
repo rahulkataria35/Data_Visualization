@@ -11,9 +11,7 @@ multiple_bar = Blueprint('multiple_bar', __name__, url_prefix='/visualization_ap
 @multiple_bar.route("/multi_bars", methods= ['POST'])
 def multi_bar():
     try:
-        input_data = request.get_json()
-        print("****************** input_data*************\n\n", input_data)
-    
+        input_data = request.get_json()    
     except Exception as e:
         return jsonify(
             {"RESPONSE_TYPE": "E", "RESPONSE_MESSAGE": "Unable to get data", "Error": str(e)})
@@ -26,7 +24,6 @@ def multi_bar():
         if num_plots > 8:
             return jsonify({"RESPONSE_TYPE": "E", "RESPONSE_MESSAGE": "unable to Draw more than 8 plots"})
 
-    
     except Exception as ex:
         meta = {
             'exc_type': type(ex).__name__,
@@ -43,11 +40,10 @@ def multi_bar():
         os.makedirs(path)
     
     try:
-        kotak_insigts_plots = create_multi_graph(json_data, title, path)
-        encoded_graph = image_to_base64(kotak_insigts_plots)
+        multiplots = create_multi_graph(json_data, title, path)
+        encoded_graph = image_to_base64(multiplots)
         image_base64 = encoded_graph.decode("utf-8")
         
-    
     except Exception as ex:
         meta = {
             'exc_type': type(ex).__name__,

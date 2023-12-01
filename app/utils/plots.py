@@ -20,25 +20,7 @@ def format_cash(amount):
 
     if amount >= 1e7:
         return str(truncate_float(amount / 1e7, 2)) + " Cr"
-    
 
-'''
-{
-  "chart_properties":{
-      "plot_type": "line_graph",
-      "x_label": "MONTH",
-      "y_label": "AMOUNT",
-      "legend": ["Logins"],
-      "grid_line_show": "Y",
-      "hide_axis_line": ['top', 'right']
-    },
-    "chart_value":{
-      "X":["Jan","Feb","Mar", "Apr","May","Jun"],
-      "Y":[20000000,10000000,20000000,30000000,35000000,40000000]
-    }
-  }
-
-'''    
 
 def single_line_or_bar_graph(input_json, output_path):
     try:
@@ -150,9 +132,6 @@ def single_line_or_bar_graph(input_json, output_path):
     plt.close('all')
 
     return saving_path
-
-
-
 
 
 def donut_graph(json_data, output_path):

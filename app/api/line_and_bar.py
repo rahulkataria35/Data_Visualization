@@ -8,10 +8,10 @@ from utils.plots import single_line_or_bar_graph
 line_and_bar_graph = Blueprint('line_and_bar_graph', __name__, url_prefix='/visualization_api')
 
 @line_and_bar_graph.route("/line_and_bar", methods= ['POST'])
-def line_and_bar_graphs():
+def line_and_bar():
     try:
         input_data = request.get_json()
-    
+        print("input_data==", input_data)
     except Exception as e:
         return jsonify(
             {"RESPONSE_TYPE": "E", "RESPONSE_MESSAGE": "Unable to get data", "Error": str(e)})

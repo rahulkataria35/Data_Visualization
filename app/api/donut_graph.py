@@ -11,17 +11,13 @@ donut_chart = Blueprint('donut_chart', __name__, url_prefix='/visualization_api'
 @donut_chart.route("/donut", methods= ['POST'])
 def donut():
     try:
-        input_data = request.get_json()
-        print("****************** input_data*************\n\n", input_data)
-    
+        input_data = request.get_json()    
     except Exception as e:
         return jsonify(
             {"RESPONSE_TYPE": "E", "RESPONSE_MESSAGE": "Unable to get data", "Error": str(e)})
-
     
     try:
         json_data = input_data['payload']
-    
     except Exception as ex:
         meta = {
             'exc_type': type(ex).__name__,

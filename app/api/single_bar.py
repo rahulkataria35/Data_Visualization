@@ -10,13 +10,6 @@ from utils.bar_bench import bar_graph_with_benchmarks
 
 single_bar_graph = Blueprint('single_bar_graph', __name__, url_prefix='/visualization_api')
 
-'''
-input req format for this:
-
-{"payload":{"Mon":1.6,"Tue":0.9,"Wed":4.7,"Thu":2.5,"Fri":0.2,"Sat":3.3,"Sun":0.3},"properties":{"x_label":"Days","y_label":"Values in %","title":"Ecosystem Availability Insight","subtitle":"Third Party Rest/Soap APIs","hide_axis":["top","right"]}}
-
-'''
-
 @single_bar_graph.route("/single_bar", methods= ['POST'])
 def performance_report():
     try:
