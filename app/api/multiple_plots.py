@@ -2,20 +2,11 @@ import traceback
 from flask import Blueprint, request, jsonify
 import shutil
 import os
-import base64
-import datetime
-from common.common import get_random_dir_file_name
+from common.common import get_random_dir_file_name, image_to_base64
 from utils.multi_bargraphs import create_multi_graph
 
 
 multiple_bar = Blueprint('multiple_bar', __name__, url_prefix='/visualization_api')
-
-
-def image_to_base64(f):
-    with open(f, 'rb') as image:
-        encoded_string = base64.b64encode(image.read())
-    return encoded_string
-
 
 @multiple_bar.route("/multi_bars", methods= ['POST'])
 def multi_bar():

@@ -2,19 +2,11 @@ import traceback
 from flask import Blueprint, request, jsonify
 import shutil
 import os
-import base64
-from common.common import get_random_dir_file_name
+from common.common import get_random_dir_file_name, image_to_base64
 from utils.plots import donut_graph
 
 
 donut_chart = Blueprint('donut_chart', __name__, url_prefix='/visualization_api')
-
-
-def image_to_base64(f):
-    with open(f, 'rb') as image:
-        encoded_string = base64.b64encode(image.read())
-    return encoded_string
-
 
 @donut_chart.route("/donut", methods= ['POST'])
 def donut():

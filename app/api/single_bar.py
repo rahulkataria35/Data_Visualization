@@ -3,10 +3,8 @@ from flask import Blueprint, request, jsonify
 import pandas as pd
 import numpy as np
 import os
-import base64
 import shutil
-import datetime
-from common.common import get_random_dir_file_name
+from common.common import get_random_dir_file_name, image_to_base64
 from utils.bar_bench import bar_graph_with_benchmarks
 
 
@@ -18,11 +16,6 @@ input req format for this:
 {"payload":{"Mon":1.6,"Tue":0.9,"Wed":4.7,"Thu":2.5,"Fri":0.2,"Sat":3.3,"Sun":0.3},"properties":{"x_label":"Days","y_label":"Values in %","title":"Ecosystem Availability Insight","subtitle":"Third Party Rest/Soap APIs","hide_axis":["top","right"]}}
 
 '''
-
-def image_to_base64(f):
-    with open(f, 'rb') as image:
-        encoded_string = base64.b64encode(image.read())
-    return encoded_string
 
 @single_bar_graph.route("/single_bar", methods= ['POST'])
 def performance_report():

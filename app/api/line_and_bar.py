@@ -2,15 +2,8 @@ import traceback
 from flask import Blueprint, request, jsonify
 import shutil
 import os
-import base64
-import datetime
-from common.common import get_random_dir_file_name
+from common.common import get_random_dir_file_name, image_to_base64
 from utils.plots import single_line_or_bar_graph
-
-def image_to_base64(f):
-    with open(f, 'rb') as image:
-        encoded_string = base64.b64encode(image.read())
-    return encoded_string
 
 line_and_bar_graph = Blueprint('line_and_bar_graph', __name__, url_prefix='/visualization_api')
 

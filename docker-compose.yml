@@ -20,7 +20,7 @@ services:
       interval: "300s"
       timeout: "150s"
       retries: 3
-    container_name: "visualization_api"
+    container_name: "visualization_apis"
 
     ports:
       - "9044:80"
